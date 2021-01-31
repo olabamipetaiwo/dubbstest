@@ -1,5 +1,5 @@
 import axios from 'axios';
-let baseURL = process.env.BASE_URL ? process.env.BASE_URL : 'http://questence.tqfe.net/api/v1/';
+let baseURL = process.env.BASE_URL ? process.env.BASE_URL : 'https://questence.tqfe.net/api/v1/';
 
 axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
 axios.defaults.headers.common['Authorization'] = localStorage.getItem('Authorization');
