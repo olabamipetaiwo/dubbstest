@@ -14,15 +14,22 @@ const Form = () => {
   const submitBtn = useRef();
 
   useEffect(() => {
+    console.log('Calllign useefeft');
     fetchCategories();
     //eslint-disable-next-line
   }, []);
 
   const fetchCategories = async () => {
     try {
+      console.log('Calllign useefeft success');
       let res = await getCategories();
+
+      console.log('Calllign useefeft sucecces 2');
+
       await setCategories([...res.data.data]);
     } catch (err) {
+      console.log('Calllign useefeft failure');
+
       setError('Unable to fetch categories');
     }
     await setLoading(false);
@@ -48,8 +55,8 @@ const Form = () => {
 
   return (
     <Fragment>
-		  <section className="container">
-			  <h2>Register Here</h2>
+      <section className="container">
+        <h2>Register Here</h2>
         {loading ? (
           <p>Loading categories</p>
         ) : categories.length > 0 ? (
