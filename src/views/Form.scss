@@ -1,0 +1,181 @@
+//Variables
+//fonts
+$primaryFont: 'Euclid Circular A';
+$bold: 'Euclid Circular A Bold';
+// $light:'Euclid Circular A Light
+
+//colors
+$primary: #0038ff;
+$green: #32bea6;
+// $secondary: #00114d;
+$white: #ffffff;
+// $black: #000000;
+// $dark: #212121;
+// $nearWhite: #fafafa;
+// $grey-c: #cccccc;
+$grey-3: #333333;
+// $grey-9: #999999;
+$grey-6: #666666;
+// $purple: #e5ebff;
+$border: 1px solid #e6e6e6;
+//Variables
+
+//Mixins
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin fontNormal($fs, $lh, $color) {
+  font-family: $primaryFont;
+  font-size: $fs;
+  line-height: $lh;
+  color: $color;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@mixin fontBold($fs, $lh, $color) {
+  font-family: $bold;
+  font-size: $fs;
+  line-height: $lh;
+  color: $color;
+  font-style: normal;
+  font-weight: bold;
+}
+
+@mixin btnGeneric {
+  font-family: $primaryFont;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+//Mixins
+
+//Form
+
+label {
+  @include fontNormal(1.2rem, 1.5rem, $grey-6);
+  margin-bottom: 0.8rem;
+}
+
+input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  transition: all 0.2s;
+  @include fontNormal(1.6rem, 2rem, $grey-3);
+
+  &:focus {
+    outline: none;
+
+    &:invalid {
+      border-bottom: 1px solid orangered;
+    }
+  }
+
+  &::-webkit-input-placeholder {
+    @include fontNormal(1.6rem, 2rem, $grey-3);
+  }
+}
+select {
+  background: transparent;
+  border: none;
+  @include fontNormal(1.6rem, 2rem, $grey-3);
+  outline: none;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  height: 4rem;
+  display: inline-block;
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+  &:-webkit-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+
+  option {
+    padding: 1rem;
+    background-color: transparent;
+    @include fontNormal(1.6rem, 2rem, $grey-3);
+    cursor: pointer;
+  }
+}
+//Form
+
+//Button
+.btn {
+  @include btnGeneric;
+  color: $white;
+  @include flexCenter;
+  padding: 1.9rem 2.5rem;
+  margin-top: 2rem;
+  width: 26rem;
+
+  &-blue {
+    background-color: $primary;
+
+    &:hover {
+      background-color: rgba($primary, 0.7);
+    }
+  }
+}
+//Button
+
+//Layout
+
+.container {
+  min-height: 100vh;
+  @include flexCenter;
+  flex-direction: column;
+}
+
+.content {
+  width: 50%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__group {
+  padding: 1.4rem;
+  border: $border;
+  border-radius: 6px;
+  border-color: $grey-6;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: 100%;
+}
+//Layout
+
+
+// Utils
+h2 {
+        @include fontNormal(2rem,2.4rem,$primary);
+	
+}
+
+h4 {
+        @include fontNormal(1.6rem,2rem,$green);
+
+}
+
+
+p.error {
+	color:orangred;
+}
+// Utils
